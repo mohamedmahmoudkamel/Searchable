@@ -1,13 +1,13 @@
 {
-    "name": "mkamel/searchable",
-    "authors": [{
-        "name": "Mohamed Mahmoud Kamel",
-        "email": "mmkln16@gmail.com"
-    }],
-    "require": {},
-    "autoload": {
-        "psr-4": {
-            "mkamel\\searchable\\": "src/"
-        }
+  "name": "mkamel/searchable",
+  "authors": [{
+    "name": "Mohamed Mahmoud Kamel",
+    "email": "mmkln16@gmail.com"
+  }],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "mkamel\\Searchable\\": "src/"
     }
+  }
 }
