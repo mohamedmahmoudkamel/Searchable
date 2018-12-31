@@ -1,0 +1,13 @@
+{
+    "name": "mkamel/searchable",
+    "authors": [{
+        "name": "Mohamed Mahmoud Kamel",
+        "email": "kamel@taqalid.com"
+    }],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "mkamel\\searchable\\": "src/"
+        }
+    }
+}
