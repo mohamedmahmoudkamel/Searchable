@@ -1,6 +1,6 @@
 <?php
 
-namespace Searchable;
+namespace mkamel\Searchable;
 
 use Illuminate\Support\ServiceProvider;
 

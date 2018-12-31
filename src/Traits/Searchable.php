@@ -1,8 +1,8 @@
 <?php
 
-namespace Searchable\Traits;
+namespace mkamel\Searchable\Traits;
 
-use Searchable\Exceptions\NotFoundFilterException;
+use mkamel\Searchable\Exceptions\NotFoundFilterException;
 
 trait Searchable
 {
