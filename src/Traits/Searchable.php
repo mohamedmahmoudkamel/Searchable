@@ -17,6 +17,7 @@ trait Searchable
     $query = self::query();
 
     foreach ($filters as $key => $value) {
+      if(is_null($value)) continue;
       $filter = (new self)->getFilter($key);
       $query = app()->make($filter)->apply($query, $key, $value);
     }
