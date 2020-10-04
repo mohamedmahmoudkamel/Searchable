@@ -3,6 +3,7 @@
 namespace mkamel\Searchable\Traits;
 
 use mkamel\Searchable\Exceptions\NotFoundFilterException;
+use Illuminate\Support\Str;
 
 trait Searchable
 {
@@ -61,7 +62,7 @@ trait Searchable
    */
   protected function getFilterName($key)
   {
-    return config('searchable.prefix') . studly_case($key) . config('searchable.suffix');
+    return config('searchable.prefix') . Str::studly($key) . config('searchable.suffix');
   }
 
 
