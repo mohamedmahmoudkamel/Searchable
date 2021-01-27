@@ -1,6 +1,6 @@
 <?php
 
-namespace mkamel\Searchable\Exceptions;
+namespace MKamel\Searchable\Exceptions;
 
 use Exception;
 

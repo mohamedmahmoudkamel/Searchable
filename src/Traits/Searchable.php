@@ -1,25 +1,26 @@
 <?php
 
-namespace mkamel\Searchable\Traits;
+namespace MKamel\Searchable\Traits;
 
-use mkamel\Searchable\Exceptions\NotFoundFilterException;
 use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Builder;
+use MKamel\Searchable\Exceptions\NotFoundFilterException;
 
 trait Searchable
 {
-  /**
-   * Undocumented function
-   *
-   * @param [type] $filters
-   * @return void
-   */
+    /**
+     * @param $filters
+     * @return Builder
+     */
   public static function search($filters)
   {
     $query = self::query();
 
     foreach ($filters as $key => $value) {
       if(is_null($value)) continue;
+
       $filter = (new self)->getFilter($key);
+
       $query = app()->make($filter)->apply($query, $key, $value);
     }
 
@@ -27,71 +28,59 @@ trait Searchable
   }
 
 
-  /**
-   * Undocumented function
-   *
-   * @param [type] $key
-   * @return void
-   */
-  protected function getFilter($key)
+    /**
+     * @param string $key
+     * @return string
+     */
+    protected function getFilter($key)
   {
     $filter = $this->getNameSpace() . '\\' . $this->getClassName() . '\\' . $this->getFilterName($key);
 
-    $this->findFilter($filter);
+    $this->checkIfFilterExists($filter);
 
     return $filter;
   }
 
 
-  /**
-   * Undocumented function
-   *
-   * @return void
-   */
-  protected function getNameSpace()
+    /**
+     * @return string
+     */
+    protected function getNameSpace()
   {
     return config('searchable.filters_namespace');
   }
 
 
-  /**
-   * Undocumented function
-   *
-   * @param [type] $key
-   * @return void
-   */
-  protected function getFilterName($key)
+    /**
+     * @param string $key
+     * @return string
+     */
+    protected function getFilterName($key)
   {
     return config('searchable.prefix') . Str::studly($key) . config('searchable.suffix');
   }
 
 
-  /**
-   * Undocumented function
-   *
-   * @return void
-   */
-  protected function getClassName()
+    /**
+     * @return string
+     */
+    protected function getClassName()
   {
     $path = explode('\\', __class__);
     return array_pop($path);
   }
 
 
-  /**
-   * Undocumented function
-   *
-   * @param [type] $filter
-   * @return void
-   */
-  protected function findFilter($filter)
+    /**
+     * @param string $filterFullPath
+     * @throws NotFoundFilterException
+     */
+    protected function checkIfFilterExists($filterFullPath)
   {
     throw_if(
-      ! class_exists($filter),
+      ! class_exists($filterFullPath),
       NotFoundFilterException::class,
-      "$filter not found."
+      "$filterFullPath not found."
     );
-
-    return true;
   }
 }
