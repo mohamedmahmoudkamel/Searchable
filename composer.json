@@ -1,12 +1,14 @@
 {
   "name": "MKamel/Searchable",
   "license": "MIT",
-  "authors": [{
-    "name": "Mohamed Mahmoud Kamel",
-    "email": "mmkln16@gmail.com"
-  }],
+  "authors": [
+    {
+      "name": "Mohamed Mahmoud Kamel",
+      "email": "mmkln16@gmail.com"
+    }
+  ],
   "require": {
-    "illuminate/support": "^7.30"
+    "illuminate/support": "^6.0"
   },
   "autoload": {
     "psr-4": {
