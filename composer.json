@@ -1,5 +1,5 @@
 {
-  "name": "MKamel/Searchable",
+  "name": "mkamel/searchable",
   "license": "MIT",
   "authors": [
     {
@@ -8,7 +8,7 @@
     }
   ],
   "require": {
-    "illuminate/support": "^6.0"
+    "illuminate/support": "^9.0"
   },
   "autoload": {
     "psr-4": {
